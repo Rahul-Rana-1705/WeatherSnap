@@ -1,7 +1,4 @@
 package com.example.weathersnap.ui.screens.camera
-
-import android.content.Context
-import android.net.Uri
 import android.util.Log
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture

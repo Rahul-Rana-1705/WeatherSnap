@@ -20,7 +20,7 @@ class ImageCompressor @Inject constructor(
         val bitmap = BitmapFactory.decodeFile(imagePath) ?: return null
         val outputStream = ByteArrayOutputStream()
         
-        // Quality 60% as requested
+        // Quality 60%
         bitmap.compress(Bitmap.CompressFormat.JPEG, 60, outputStream)
         
         val compressedFile = File(context.cacheDir, "compressed_${UUID.randomUUID()}.jpg")
