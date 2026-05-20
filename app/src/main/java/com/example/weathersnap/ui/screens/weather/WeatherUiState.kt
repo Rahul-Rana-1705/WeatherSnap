@@ -10,5 +10,6 @@ data class WeatherUiState(
     val selectedCity: City? = null,
     val weatherSnapshot: WeatherSnapshot? = null,
     val isLoadingWeather: Boolean = false,
+    val isCameraPermissionGranted: Boolean = false,
     val error: String? = null
 )

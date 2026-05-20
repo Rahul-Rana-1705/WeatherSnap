@@ -76,6 +76,7 @@ fun WeatherCard(
     modifier: Modifier = Modifier,
     showReportButton: Boolean = false,
     showReadiness: Boolean = false,
+    isCameraEnabled: Boolean = false,
     onReportClick: () -> Unit = {}
 ) {
     Card(
@@ -148,10 +149,10 @@ fun WeatherCard(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
-                        text = "Camera and Room DB enabled",
+                        text = if (isCameraEnabled) "Camera and Room DB enabled" else "Camera permission required",
                         style = MaterialTheme.typography.bodySmall,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White
+                        color = if (isCameraEnabled) Color.White else Color(0xFFF44336)
                     )
                 }
             }
@@ -160,14 +161,26 @@ fun WeatherCard(
                 Spacer(modifier = Modifier.height(20.dp))
                 Button(
                     onClick = onReportClick,
+                    enabled = isCameraEnabled,
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFC4D68A),
-                        contentColor = Color(0xFF1B2B14)
+                        contentColor = Color(0xFF1B2B14),
+                        disabledContainerColor = Color(0xFFC4D68A).copy(alpha = 0.2f),
+                        disabledContentColor = Color(0xFF1B2B14).copy(alpha = 0.4f)
                     ),
                     shape = RoundedCornerShape(20.dp)
                 ) {
                     Text("Create Report", fontWeight = FontWeight.Bold)
+                }
+                
+                if (!isCameraEnabled) {
+                    Text(
+                        text = "Enable camera permission in settings to create reports",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = Color(0xFFF44336),
+                        modifier = Modifier.padding(top = 8.dp).align(Alignment.CenterHorizontally)
+                    )
                 }
             }
         }
