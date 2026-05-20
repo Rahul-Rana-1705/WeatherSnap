@@ -139,7 +139,8 @@ fun WeatherCard(
                         .fillMaxWidth()
                         .background(Color(0xFF25271F), RoundedCornerShape(8.dp))
                         .padding(12.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
                         text = "Report readiness",
@@ -149,7 +150,8 @@ fun WeatherCard(
                     Text(
                         text = "Camera and Room DB enabled",
                         style = MaterialTheme.typography.bodySmall,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
                     )
                 }
             }
@@ -160,12 +162,12 @@ fun WeatherCard(
                     onClick = onReportClick,
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
+                        containerColor = Color(0xFFC4D68A),
+                        contentColor = Color(0xFF1B2B14)
                     ),
                     shape = RoundedCornerShape(20.dp)
                 ) {
-                    Text("Create Report")
+                    Text("Create Report", fontWeight = FontWeight.Bold)
                 }
             }
         }
@@ -183,7 +185,7 @@ fun TemperatureDisplay(temp: Double) {
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary
+            color = Color(0xFFC4D68A)
         )
     }
 }

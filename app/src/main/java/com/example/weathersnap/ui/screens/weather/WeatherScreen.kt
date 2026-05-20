@@ -120,6 +120,7 @@ fun WeatherScreen(
                             WeatherCard(
                                 weather = weather,
                                 showReportButton = true,
+                                showReadiness = true,
                                 onReportClick = onNavigateToCreateReport
                             )
                         }
